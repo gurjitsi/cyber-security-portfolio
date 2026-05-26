@@ -1,14 +1,15 @@
-# 📱 Mobile Security Portfolio — Gurjit Singh
+# 📱 Cyber Security Portfolio — Gurjit Singh
 
 > **CompTIA Security+ certified** | SOC Analyst | Mobile Application Security Engineer  
-> 10+ years iOS/Android development — now securing the systems I built  
+> 10+ years iOS/Android/Web development — now securing the systems I built  
 > 📧 contact@gurjit.co | 🌐 [gurjit.co](https://gurjit.co) | 💼 [linkedin.com/in/singh-gurjit](https://linkedin.com/in/singh-gurjit)
 
 ---
 
 ## 👋 About This Repository
+CompTIA Security+ certified SOC Analyst and Mobile Application Security Engineer with 10+ years of cross-platform development experience across iOS, Android, and web.
 
-I'm a developer-turned-security-engineer. After 10 years building production iOS and Android applications — handling payment data, logistics systems, and 10,000+ user accounts — I passed **CompTIA Security+ (SY0-701) in May 2026** and transitioned fully into cybersecurity.
+I bring something most security professionals don't have — a developer's hands-on understanding of the full software attack surface. I've built production applications handling sensitive financial data (Stripe/PCI), logistics data, and 10,000+ user accounts. I know how these systems get built, which means I know exactly where they break.
 
 This repository documents my security learning journey, practical lab work, and real-world application audits. Everything here is hands-on — not theoretical.
 
@@ -55,7 +56,6 @@ mobile-security-portfolio/
 |--------------|--------|------|
 | CompTIA Security+ (SY0-701) | ✅ Passed | May 2026 |
 | CompTIA CySA+ | 🔄 In progress | 2026 |
-| eJPT | 📅 Planned | 2026 |
 
 ---
 
@@ -74,17 +74,15 @@ Hands-on penetration testing practice — progress log and key learnings.
 → [View progress](./tryhackme/progress.md)
 
 ### 4. Security+ Journey
-How I passed CompTIA Security+ in 9 days while working as a freelance iOS developer.  
+How I passed CompTIA Security+ in 9 days.  
 → [Read the full story](./certifications/security-plus-journey.md)
 
 ---
 
 ## 📝 Blog Posts
 
-- [I audited my own iOS app with MobSF — here's what I found](https://gurjit.co) *(coming soon)*
-- [OWASP Mobile Top 10 explained by an iOS developer](https://gurjit.co) *(coming soon)*
-- [From iOS developer to CompTIA Security+ in 9 days](https://gurjit.co) *(coming soon)*
-
+- [Understanding Certificates in Cybersecurity([https://gurjit.co](https://gurjit.co/blogs/2026/understanding-certificates-in-cybersecurity.php))
+  
 ---
 
 ## 🛠 Tools & Technologies
