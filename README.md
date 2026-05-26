@@ -1,0 +1,103 @@
+# 📱 Mobile Security Portfolio — Gurjit Singh
+
+> **CompTIA Security+ certified** | SOC Analyst | Mobile Application Security Engineer  
+> 10+ years iOS/Android development — now securing the systems I built  
+> 📧 contact@gurjit.co | 🌐 [gurjit.co](https://gurjit.co) | 💼 [linkedin.com/in/singh-gurjit](https://linkedin.com/in/singh-gurjit)
+
+---
+
+## 👋 About This Repository
+
+I'm a developer-turned-security-engineer. After 10 years building production iOS and Android applications — handling payment data, logistics systems, and 10,000+ user accounts — I passed **CompTIA Security+ (SY0-701) in May 2026** and transitioned fully into cybersecurity.
+
+This repository documents my security learning journey, practical lab work, and real-world application audits. Everything here is hands-on — not theoretical.
+
+**Currently targeting:** SOC Analyst, AppSec Engineer, and Junior Penetration Tester roles in the UK, Ireland, Netherlands, and Germany.
+
+---
+
+## 📂 Repository Structure
+
+```
+mobile-security-portfolio/
+│
+├── README.md                          ← You are here
+│
+├── owasp-mobile-top10/
+│   ├── README.md                      ← Overview of all 10 risks
+│   ├── M1-improper-credential-usage.md
+│   ├── M2-inadequate-supply-chain.md
+│   ├── M3-insecure-authentication.md
+│   ├── M4-insufficient-input-validation.md
+│   ├── M5-insecure-communication.md
+│   ├── M6-inadequate-privacy-controls.md
+│   ├── M7-insufficient-binary-protections.md
+│   ├── M8-security-misconfiguration.md
+│   ├── M9-insecure-data-storage.md
+│   └── M10-insufficient-cryptography.md
+│
+├── mobsf-audit/
+│   ├── README.md                      ← Audit methodology
+│   └── sixrpm-findings.md             ← SixRPM iOS app audit findings
+│
+├── tryhackme/
+│   └── progress.md                    ← TryHackMe learning log
+│
+└── certifications/
+    └── security-plus-journey.md       ← How I passed Security+ in 9 days
+```
+
+---
+
+## 🏆 Certifications
+
+| Certification | Status | Date |
+|--------------|--------|------|
+| CompTIA Security+ (SY0-701) | ✅ Passed | May 2026 |
+| CompTIA CySA+ | 🔄 In progress | 2026 |
+| eJPT | 📅 Planned | 2026 |
+
+---
+
+## 🔬 Security Work
+
+### 1. OWASP Mobile Top 10 — iOS Practical Lab
+Real Swift/UIKit code examples for every OWASP Mobile risk — vulnerability and fix side by side.  
+→ [View OWASP Mobile Top 10 notes](./owasp-mobile-top10/README.md)
+
+### 2. MobSF iOS App Audit — SixRPM Freight Platform
+Static and dynamic analysis of a production iOS logistics app I built.  
+→ [View audit findings](./mobsf-audit/sixrpm-findings.md)
+
+### 3. TryHackMe — Jr Penetration Tester Pathway
+Hands-on penetration testing practice — progress log and key learnings.  
+→ [View progress](./tryhackme/progress.md)
+
+### 4. Security+ Journey
+How I passed CompTIA Security+ in 9 days while working as a freelance iOS developer.  
+→ [Read the full story](./certifications/security-plus-journey.md)
+
+---
+
+## 📝 Blog Posts
+
+- [I audited my own iOS app with MobSF — here's what I found](https://gurjit.co) *(coming soon)*
+- [OWASP Mobile Top 10 explained by an iOS developer](https://gurjit.co) *(coming soon)*
+- [From iOS developer to CompTIA Security+ in 9 days](https://gurjit.co) *(coming soon)*
+
+---
+
+## 🛠 Tools & Technologies
+
+| Category | Tools |
+|----------|-------|
+| Mobile security | MobSF, Frida, Burp Suite, OWASP MSTG |
+| Threat frameworks | MITRE ATT&CK, OWASP Mobile Top 10 |
+| Development | Swift, Objective-C, Java, Python |
+| Platforms | iOS, Android, Web |
+| DevSecOps | Fastlane, Git, CI/CD, XCTest |
+| AI/ML | LLaMA 3.2, Ollama (on-device inference) |
+
+---
+
+*This portfolio is actively updated as I complete labs, audits, and certifications.*
