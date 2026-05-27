@@ -32,9 +32,9 @@
 
 ## Rooms Completed
 
-| Room | Category | Difficulty | Notes |
+| Room | Badges | Streak | Notes |
 |------|----------|------------|-------|
-| *Update as you complete rooms* | | | |
+| 7 | 1 | 1 | |
 
 ---
 
