@@ -1,6 +1,6 @@
 # TryHackMe — Learning Progress Log
 
-**Profile:** [tryhackme.com/p/gurjit](https://tryhackme.com/p/gurjit) *(update with your actual username)*  
+**Profile:** [tryhackme.com/p/gurjit](https://tryhackme.com/p/gurjit.singh)
 **Primary path:** Jr Penetration Tester  
 **Started:** May 2026  
 **Status:** 🔄 In progress
@@ -11,15 +11,13 @@
 
 | Module | Topic | Status |
 |--------|-------|--------|
-| 1 | Introduction to Pentesting | 🔄 In progress |
-| 2 | Introduction to Web Hacking | ⏳ Upcoming |
+| 1 | Start Your Cyber Security Journey | ✅ Completed |
+| 2 | Introduction to Web Hacking | 🔄 In progress |
 | 3 | Burp Suite | ⏳ Upcoming |
 | 4 | Network Security | ⏳ Upcoming |
 | 5 | Vulnerability Research | ⏳ Upcoming |
 | 6 | Metasploit | ⏳ Upcoming |
 | 7 | Privilege Escalation | ⏳ Upcoming |
-
-*Update this table as you complete modules*
 
 ---
 
