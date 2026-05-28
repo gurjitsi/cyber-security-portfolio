@@ -35,7 +35,7 @@ The most important issue is the ATS configuration because it affects the entire 
 ## Evidence
 
 ### MobSF scorecard
-![MobSF scorecard]([screenshots/mobsf-scorecard.png](https://github.com/gurjitsi/cyber-security-portfolio/blob/main/mobsf-audit/imagegalleryapp.png?raw=true))
+![MobSF scorecard](mobsf-audit/imagegalleryapp.png)
 
 ## Retest notes
 
