@@ -9,6 +9,9 @@
 
 This guide is grounded in a real static analysis scan performed using [MobSF (Mobile Security Framework)](https://github.com/MobSF/Mobile-Security-Framework-MobSF) on an iOS application.
 
+### MobSF scorecard
+![image alt](https://github.com/gurjitsi/cyber-security-portfolio/blob/14c231adee3b495d5cc96f28bb9b07e70611e8c4/mobsf-audit/imagegalleryapp.png)
+
 | Finding | Severity | OWASP Mobile Risk |
 |---|---|---|
 | ATS `AllowsArbitraryLoads` enabled | 🔴 High | M8 – Security Misconfiguration |
