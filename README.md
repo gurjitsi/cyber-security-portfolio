@@ -39,7 +39,7 @@ mobile-security-portfolio/
 │
 ├── mobsf-audit/
 │   ├── README.md                      ← Audit methodology
-│   └── sixrpm-findings.md             ← SixRPM iOS app audit findings
+│   └── imagegalleryapp-findings.md    ← Image Gallery iOS app audit findings
 │
 ├── tryhackme/
 │   └── progress.md                    ← TryHackMe learning log
