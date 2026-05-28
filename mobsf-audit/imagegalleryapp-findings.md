@@ -32,6 +32,11 @@ The most important issue is the ATS configuration because it affects the entire 
 - **IMG-02:** Move the Flickr API key out of source control, rotate it if it has been exposed, and consider using a server-side proxy or provider-side restrictions.
 - **IMG-03:** Remove debug logging from release builds and ensure no sensitive request, response, or user data is written to logs.
 
+## Evidence
+
+### MobSF scorecard
+![MobSF scorecard]([screenshots/mobsf-scorecard.png](https://github.com/gurjitsi/cyber-security-portfolio/blob/main/mobsf-audit/imagegalleryapp.png?raw=true))
+
 ## Retest notes
 
 After remediation, rerun MobSF to confirm that ATS warnings disappear, the hardcoded secret finding is gone, and logging is reduced or disabled in production paths. A retest with an improved score would make this a stronger portfolio case study.
