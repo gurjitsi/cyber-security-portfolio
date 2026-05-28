@@ -52,6 +52,13 @@ let flickrKey = Bundle.main.object(forInfoDictionaryKey: "FLICKR_API_KEY") as? S
 
 ** Remove debug logging from release builds and ensure no sensitive request, response, or user data is written to logs.
 
+**Example remediation pattern**
+```swift
+#if DEBUG
+print("Loaded \(images.count) images")
+#endif
+```
+
 ## Evidence
 
 ### MobSF scorecard
