@@ -89,12 +89,13 @@ How I passed CompTIA Security+ in 9 days.
 
 | Category | Tools |
 |----------|-------|
-| Mobile security | MobSF, Frida, Burp Suite, OWASP MSTG |
-| Threat frameworks | MITRE ATT&CK, OWASP Mobile Top 10 |
-| Development | Swift, Objective-C, Java, Python |
-| Platforms | iOS, Android, Web |
-| DevSecOps | Fastlane, Git, CI/CD, XCTest |
-| AI/ML | LLaMA 3.2, Ollama (on-device inference) |
+| Security tools | Burp Suite, Frida, ELK, Wireshark, tcpdump, Zenmap, VirusTotal, MobSF, OpenVAS |
+| Programming Languages| Swift, Objective-C, Java, HTML, CSS, Javascript, SQL, PHP, Python |
+| Architecture & Design Patterns| MVVM, MVC, Singleton, Delegate, Dependency Injection |
+| Operating Systems | Linux (Red Hat Enterprise Linux, Ubuntu, Kali Linux), macOS, Windows |
+| DevOps/ CI-CD | Git, Fastlane, Jenkins, Gitlab, Firebase, Xcode, Android Studio, CI/CD |
+|Others | REST APIs, Unit Testing, UI Testing, Debugging |
+| AI/ML | LLaMA 3.2, Ollama |
 
 ---
 
