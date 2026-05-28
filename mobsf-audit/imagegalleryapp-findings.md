@@ -30,6 +30,20 @@ The most important issue is the ATS configuration because it affects the entire 
 
 - **IMG-01:** Remove global ATS exceptions from `Info.plist` and only allow specific exceptions if there is a documented business need.
 - **IMG-02:** Move the Flickr API key out of source control, rotate it if it has been exposed, and consider using a server-side proxy or provider-side restrictions.
+### IMG-02: Possible hardcoded sensitive information
+
+**Evidence**
+```swift
+let flickrKey = "f9cc014fa76b098f9e82f1c288379ea1"
+```
+
+**Risk**
+The API key is exposed in source code and can be extracted from the app.
+
+**Remediation**
+```swift
+let flickrKey = Bundle.main.object(forInfoDictionaryKey: "FLICKR_API_KEY") as? String ?? ""
+```
 - **IMG-03:** Remove debug logging from release builds and ensure no sensitive request, response, or user data is written to logs.
 
 ## Evidence
