@@ -65,8 +65,8 @@ mobile-security-portfolio/
 Real Swift/UIKit code examples for every OWASP Mobile risk — vulnerability and fix side by side.  
 → [View OWASP Mobile Top 10 notes](./owasp-mobile-top10/README.md)
 
-### 2. MobSF iOS App Audit — SixRPM Freight Platform
-Static and dynamic analysis of a production iOS logistics app I built.  
+### 2. MobSF iOS App Audit — Image Gallery App
+Static and dynamic analysis of a production iOS app I built.  
 → [View audit findings](./mobsf-audit/sixrpm-findings.md)
 
 ### 3. TryHackMe — Jr Penetration Tester Pathway
