@@ -1,4 +1,4 @@
-# 📱 Cyber Security Portfolio — Gurjit Singh
+# 🔐 Cyber Security Portfolio — Gurjit Singh
 
 > **CompTIA Security+ certified** | SOC Analyst | Mobile Application Security Engineer  
 > 10+ years iOS/Android/Web development — now securing the systems I built  
