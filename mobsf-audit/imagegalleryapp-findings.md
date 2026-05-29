@@ -65,10 +65,6 @@ print("Loaded \(images.count) images")
 ![image alt](https://github.com/gurjitsi/cyber-security-portfolio/blob/14c231adee3b495d5cc96f28bb9b07e70611e8c4/mobsf-audit/imagegalleryapp.png)
 
 
-## Retest notes
-
-After remediation, rerun MobSF to confirm that ATS warnings disappear, the hardcoded secret finding is gone, and logging is reduced or disabled in production paths. A retest with an improved score would make this a stronger portfolio case study.
-
 ## Conclusion
 
-This audit is a solid portfolio project because it shows both static-analysis findings and concrete remediation opportunities. The app is simple enough to finish quickly, but the issues are realistic and relevant for AppSec roles.
+This audit is a project which shows both static-analysis findings and concrete remediation opportunities.
