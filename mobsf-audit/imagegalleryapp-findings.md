@@ -38,7 +38,7 @@ Move the Flickr API key out of source control, rotate it if it has been exposed,
 
 **Evidence**
 ```swift
-let flickrKey = "f9cc014fa76b098f9e82f1c288379ea1"
+let flickrKey = "f9cc014fa76b098f9e82f1c288379ea2"
 ```
 
 **Risk**
