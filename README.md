@@ -1,26 +1,26 @@
 # 🔐 Cyber Security Portfolio — Gurjit Singh
 
-> **CompTIA Security+ certified** | SOC Analyst | Mobile Application Security Engineer  
+> **CompTIA Security+ certified** | Application Security Engineer | Mobile AppSec | SOC Analyst
 > 10+ years iOS/Android/Web development — now securing the systems I built  
 > 📧 contact@gurjit.co | 🌐 [gurjit.co](https://gurjit.co) | 💼 [linkedin.com/in/singh-gurjit](https://linkedin.com/in/singh-gurjit)
 
 ---
 
 ## 👋 About This Repository
-CompTIA Security+ certified SOC Analyst and Mobile Application Security Engineer with 10+ years of cross-platform development experience across iOS, Android, and web.
+CompTIA Security+ certified Application Security Engineer & SOC Analyst with 10+ years of cross-platform development experience across iOS, Android, and web.
 
-I bring something most security professionals don't have — a developer's hands-on understanding of the full software attack surface. I've built production applications handling sensitive financial data (Stripe/PCI), logistics data, and 10,000+ user accounts. I know how these systems get built, which means I know exactly where they break.
+I bring something most security professionals don't have — a developer's hands-on understanding of the full software attack surface. I've built production applications handling sensitive financial data (Stripe/PCI), logistics data, and user accounts. I know how these systems get built, which means I know exactly where they break.
 
 This repository documents my security learning journey, practical lab work, and real-world application audits. Everything here is hands-on — not theoretical.
 
-**Currently targeting:** SOC Analyst, AppSec Engineer, and Junior Penetration Tester roles in the UK, Ireland, Netherlands, and Germany.
+**Currently targeting:** AppSec Engineer, SOC Analyst and Penetration Tester roles in the EU & UK.
 
 ---
 
 ## 📂 Repository Structure
 
 ```
-mobile-security-portfolio/
+security-portfolio/
 │
 ├── README.md                          ← You are here
 │
