@@ -82,7 +82,7 @@ How I passed CompTIA Security+ in 9 days.
 ## 📝 Blog Posts
 
 ### appsec-mobile/
-- Enforcing Secure Transport in iOS with ATS ([Read more](https://gurjit.co/blogs/2023/dealing-with-app-transport-security-in-xcode.php))
+- Enforcing Secure Transport in iOS with ATS → [Read the full story](https://gurjit.co/blogs/2023/dealing-with-app-transport-security-in-xcode.php)
 
 ### fundamentals/
 - [Understanding Certificates in Cybersecurity([https://gurjit.co](https://gurjit.co/blogs/2026/understanding-certificates-in-cybersecurity.php))
