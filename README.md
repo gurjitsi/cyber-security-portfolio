@@ -81,21 +81,22 @@ How I passed CompTIA Security+ in 9 days.
 
 ## 📝 Blog Posts
 
-### appsec-mobile/
+### Mobile App Security
 - Enforcing Secure Transport in iOS with ATS → [Read the full story](https://gurjit.co/blogs/2023/dealing-with-app-transport-security-in-xcode.php)
+- Mobile App SAST with MobSF → [Read the full story](https://gurjit.co/blogs/2026/mobsf-audit-of-an-ios-app.php)
 
-### secure-sdlc (Testing, Linting, Code Quality)/
+### Secure SDLC (Testing, Linting, Code Quality)
 - Implemented extensive unit testing in Swift and Xcode to prevent regressions and catch logic flaws early. → [Read the full story](https://www.gurjit.co/blogs/the-ultimate-guide-to-ios-unit-testing-with-swift-and-xcode.php)
 - Used SwiftLint to enforce coding standards and reduce error‑prone patterns. → [Read the full story](https://gurjit.co/blogs/2023/getting-started-with-swiftlint.php)
 - Deep dives into memory management → [Read the full story](https://gurjit.co/blogs/2023/getting-started-with-swiftlint.php)
 
-###secure-coding (Memory & Safety)/
+### Secure Coding Practices (Memory & Safety)
 - Deep Dive into Autorelease Pools in Swift → [Read the full story](https://gurjit.co/blogs/2024/deep-dive-into-autorelease-pools-in-swift.php)
 - How to write concurrent code in Swift → [Read the full story](https://medium.com/gitconnected/how-to-write-concurrent-code-in-swift-e9cdd8971021)
 - How to cache data in Swift using NSCache → [Read the full story](https://gurjit.co/blogs/2023/how-to-cache-data-in-swift-using-nscache.php)
 - Difference between weak and unowned references explained → [Read the full story](https://www.gurjit.co/blogs/difference-between-weak-and-unowned-references-explained-in-swift.php)
 
-### fundamentals/
+### Security Fundamentals
 - Understanding Certificates in Cybersecurity → [Read the full story](https://gurjit.co/blogs/2026/understanding-certificates-in-cybersecurity.php)
   
 ---
