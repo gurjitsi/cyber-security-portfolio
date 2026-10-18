@@ -2,7 +2,7 @@
 
 > **CompTIA Security+ certified** | Application Security Engineer | Mobile AppSec | SOC Analyst
 > 10+ years iOS/Android/Web development — now securing the systems I built  
-> 📧 contact@gurjit.co | 🌐 [gurjit.co](https://gurjit.co) | 💼 [linkedin.com/in/singh-gurjit](https://linkedin.com/in/singh-gurjit)
+> 📧 gurjitie@gmail.com | 💼 [linkedin.com/in/singh-gurjit](https://linkedin.com/in/singh-gurjit)
 
 ---
 
@@ -69,7 +69,7 @@ Real Swift/UIKit code examples for every OWASP Mobile risk — vulnerability and
 Static and dynamic analysis of a production iOS app I built.  
 → [View audit findings](./mobsf-audit/sixrpm-findings.md)
 
-### 3. TryHackMe — Jr Penetration Tester Pathway
+### 3. TryHackMe
 Hands-on penetration testing practice — progress log and key learnings.  
 → [View progress](./tryhackme/progress.md)
 
@@ -82,22 +82,18 @@ How I passed CompTIA Security+ in 9 days.
 ## 📝 Blog Posts
 
 ### Mobile App Security
-- Enforcing Secure Transport in iOS with ATS → [Read the full story](https://gurjit.co/blogs/2023/dealing-with-app-transport-security-in-xcode.php)
-- Mobile App SAST with MobSF → [Read the full story](https://gurjit.co/blogs/2026/mobsf-audit-of-an-ios-app.php)
+- Dealing with App Transport Security in Xcode → [Read the full story](https://medium.com/@gurjit-singh/dealing-with-app-transport-security-in-xcode-f96f5ed134)
 
 ### Secure SDLC (Testing, Linting, Code Quality)
-- Implemented extensive unit testing in Swift and Xcode to prevent regressions and catch logic flaws early. → [Read the full story](https://www.gurjit.co/blogs/the-ultimate-guide-to-ios-unit-testing-with-swift-and-xcode.php)
-- Used SwiftLint to enforce coding standards and reduce error‑prone patterns. → [Read the full story](https://gurjit.co/blogs/2023/getting-started-with-swiftlint.php)
-- Deep dives into memory management → [Read the full story](https://gurjit.co/blogs/2023/getting-started-with-swiftlint.php)
+-5 Swift Code Review Red Flags That Are Secretly Ruining Your iOS App. → [Read the full story](https://medium.com/@gurjit-singh/5-swift-code-review-red-flags-that-are-secretly-ruining-your-ios-app-40ba8f0b2b74?sharedUserId=gurjit-singh)
+- Implemented extensive unit testing in Swift and Xcode to prevent regressions and catch logic flaws early. → [Read the full story](https://medium.com/swlh/the-ultimate-guide-to-ios-unit-testing-with-swift-and-xcode-1beb45fb5e64)
+- Used SwiftLint to enforce coding standards and reduce error‑prone patterns. → [Read the full story](https://medium.com/@gurjit-singh/getting-started-with-swiftlint-5ba03dde7fac)
 
 ### Secure Coding Practices (Memory & Safety)
-- Deep Dive into Autorelease Pools in Swift → [Read the full story](https://gurjit.co/blogs/2024/deep-dive-into-autorelease-pools-in-swift.php)
+- Deep Dive into Autorelease Pools in Swift → [Read the full story](https://medium.com/@gurjit-singh/deep-dive-into-autorelease-pools-in-swift-64bffc54a049)
 - How to write concurrent code in Swift → [Read the full story](https://medium.com/gitconnected/how-to-write-concurrent-code-in-swift-e9cdd8971021)
-- How to cache data in Swift using NSCache → [Read the full story](https://gurjit.co/blogs/2023/how-to-cache-data-in-swift-using-nscache.php)
-- Difference between weak and unowned references explained → [Read the full story](https://www.gurjit.co/blogs/difference-between-weak-and-unowned-references-explained-in-swift.php)
-
-### Security Fundamentals
-- Understanding Certificates in Cybersecurity → [Read the full story](https://gurjit.co/blogs/2026/understanding-certificates-in-cybersecurity.php)
+- How to cache data in Swift using NSCache → [Read the full story]([https://gurjit.co/blogs/2023/how-to-cache-data-in-swift-using-nscache.php](https://medium.com/@gurjit-singh/how-to-cache-data-in-swift-using-nscache-e1b6251404b2))
+- Difference between weak and unowned references explained → [Read the full story](https://medium.com/gitconnected/difference-between-weak-and-unowned-references-explained-in-swift-24cb1d110650)
   
 ---
 
