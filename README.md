@@ -92,7 +92,7 @@ How I passed CompTIA Security+ in 9 days.
 ### Secure Coding Practices (Memory & Safety)
 - Deep Dive into Autorelease Pools in Swift → [Read the full story](https://medium.com/@gurjit-singh/deep-dive-into-autorelease-pools-in-swift-64bffc54a049)
 - How to write concurrent code in Swift → [Read the full story](https://medium.com/gitconnected/how-to-write-concurrent-code-in-swift-e9cdd8971021)
-- How to cache data in Swift using NSCache → [Read the full story]([https://gurjit.co/blogs/2023/how-to-cache-data-in-swift-using-nscache.php](https://medium.com/@gurjit-singh/how-to-cache-data-in-swift-using-nscache-e1b6251404b2)
+- How to cache data in Swift using NSCache → [Read the full story](https://medium.com/@gurjit-singh/how-to-cache-data-in-swift-using-nscache-e1b6251404b2)
 - Difference between weak and unowned references explained → [Read the full story](https://medium.com/gitconnected/difference-between-weak-and-unowned-references-explained-in-swift-24cb1d110650)
   
 ---
