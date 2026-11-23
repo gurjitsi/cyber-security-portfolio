@@ -1,0 +1,7 @@
+index=windows EventID=4625
+| stats count AS failed_attempts
+    dc(TargetUserName) AS unique_accounts
+    values(TargetUserName) AS targeted_accounts
+    by IpAddress Computer
+| where unique_accounts >= 3
+| sort - unique_accounts
