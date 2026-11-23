@@ -1,5 +1,5 @@
-index=windows EventCode=4625
+index=windows EventID=4625
 | stats count AS failed_attempts
-    by IpAddress
+    by IpAddress TargetUserName Computer
 | where failed_attempts >= 5
 | sort - failed_attempts
