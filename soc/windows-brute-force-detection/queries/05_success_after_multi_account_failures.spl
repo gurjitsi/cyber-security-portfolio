@@ -1,0 +1,14 @@
+index=windows (EventID=4625 OR EventID=4624)
+| eval event_id=tonumber(EventID)
+| eval event_time=strptime(TimeCreated,"%Y-%m-%dT%H:%M:%SZ")
+| where isnotnull(event_time)
+    AND IpAddress!="-"
+    AND IpAddress!=""
+| eval _time=event_time
+| sort 0 _time
+| streamstats time_window=30m current=f
+    count(eval(event_id=4625)) AS prior_failed_logins
+    by IpAddress
+| where event_id=4624 AND prior_failed_logins >= 5
+| table TimeCreated IpAddress TargetUserName
+    Computer LogonType prior_failed_logins
