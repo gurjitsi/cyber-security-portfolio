@@ -1,0 +1,10 @@
+index=windows (EventCode=4625 OR EventCode=4624)
+| eval login_status=if(EventCode=4625,"Failed","Success")
+| stats
+    count(eval(login_status="Failed")) AS failed_logins
+    count(eval(login_status="Success")) AS successful_logins
+    min(_time) AS first_seen
+    max(_time) AS last_seen
+    by TargetUserName IpAddress
+| where failed_logins >= 5 AND successful_logins >= 1
+| convert ctime(first_seen) ctime(last_seen)
