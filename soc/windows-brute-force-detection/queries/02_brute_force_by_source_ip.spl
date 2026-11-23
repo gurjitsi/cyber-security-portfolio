@@ -1,0 +1,5 @@
+index=windows EventCode=4625
+| stats count AS failed_attempts
+    by IpAddress
+| where failed_attempts >= 5
+| sort - failed_attempts
