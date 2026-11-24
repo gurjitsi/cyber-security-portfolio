@@ -1,9 +1,13 @@
 index=windows (EventID=4625 OR EventID=4624)
-| eval login_status=if(EventID=4625,"Failed","Success")
+| eval event_id=tonumber(EventID)
+| eval event_time=strptime(TimeCreated,"%Y-%m-%dT%H:%M:%SZ")
+| where isnotnull(event_time)
+    AND IpAddress!="-"
+    AND IpAddress!=""
+| eval _time=event_time
 | sort 0 IpAddress TargetUserName _time
-| streamstats current=f
-    window=10
-    count(eval(login_status="Failed")) AS previous_failures
+| streamstats time_window=30m current=f
+    count(eval(event_id=4625)) AS previous_failures
     by IpAddress TargetUserName
-| where login_status="Success" AND previous_failures >= 5
-| table _time IpAddress TargetUserName Computer previous_failures
+| where event_id=4624 AND previous_failures >= 5
+| table TimeCreated IpAddress TargetUserName Computer previous_failures
