@@ -1,177 +1,120 @@
-# SOC Incident Investigation Report
-## Windows Authentication Attack Analysis
+# Incident Investigation Report
+## Windows Brute-Force Detection & Investigation
 
-**Project:** Windows Brute-Force Detection & Investigation  
-**Environment:** Windows Security Event Logs  
-**Dataset:** `windows_security.csv`  
-**Analysis date:** 23 November 2026  
-**Analyst:** SOC Analyst Trainee  
-**Status:** Investigation completed — further validation recommended
-
----
+**Assessment:** Suspicious Windows authentication activity  
+**Data source:** Windows Security Event CSV  
+**Analysis period:** 15 October 2026 (UTC)  
+**Status:** Investigation required; compromise not confirmed
 
 ## 1. Executive Summary
 
-An analysis of 74 Windows Security events identified suspicious authentication activity against the system `NIMBUS-FS01`.
+The investigation identified repeated failed Windows authentication attempts, an account lockout, and a separate sequence in which a successful login followed multiple failed attempts from the same source IP.
 
-The investigation identified:
+The strongest pattern was 60 failed logons from `203.0.113.88` against four accounts on `NIMBUS-FS01`.
 
-- 67 failed login attempts (Event ID 4625).
-- 6 successful login events (Event ID 4624).
-- 1 account-lockout event (Event ID 4740).
-- 60 failed attempts originating from `203.0.113.88`, targeting four usernames.
-- A separate sequence of seven failed attempts from `198.51.100.199`, followed by a successful Remote Interactive login from the same IP against a different account.
+A separate source, `198.51.100.199`, generated seven failed logons against seven distinct accounts before a successful logon for `temp_intern` from the same IP.
 
-The findings indicate suspicious authentication activity consistent with brute-force and account-targeting behaviour.
+These patterns are suspicious and warrant investigation. The available events do not prove that an account was compromised or that the successful login was unauthorised.
 
-The successful login following the second sequence requires further investigation. The available evidence does not establish that an account was compromised.
+## 2. Scope and Data
 
-## 2. Investigation Scope
+The supplied CSV contained 74 Windows Security events:
 
-The investigation focused on:
-
-- Repeated authentication failures.
-- Incorrect-password attempts.
-- Attempts against multiple usernames.
-- Account-lockout events.
-- Successful authentication following suspicious activity.
-
-### Event distribution
-
-| Windows Event ID | Description | Count |
+| Event ID | Meaning | Count |
 |---|---|---:|
-| 4625 | Failed login | 67 |
-| 4624 | Successful login | 6 |
+| 4625 | Failed logon | 67 |
+| 4624 | Successful logon | 6 |
 | 4740 | Account locked out | 1 |
 | **Total** | | **74** |
 
+The analysis used timestamps, computer names, event IDs, usernames, source IP addresses, logon types and authentication status codes.
+
 ## 3. Investigation Findings
 
-### Finding 1: Repeated failed authentication attempts
+### Finding 1 — Repeated Failed Logons
 
-**Source IP:** `203.0.113.88`  
-**Target system:** `NIMBUS-FS01`  
-**Workstation:** `kali`  
-**Time:** 03:05:03–03:08:32 UTC  
-**Total failed attempts:** 60
+- **Source IP:** `203.0.113.88`
+- **Target host:** `NIMBUS-FS01`
+- **Failed attempts:** 60
+- **Target accounts:** `Administrator`, `admin`, `administrator1`, `scanner`
+- **Observed period:** 03:05:03–03:08:32 UTC
+- **Workstation value:** `kali`
 
-Account breakdown:
+This concentrated burst is consistent with automated password-guessing or brute-force activity.
 
-| Username | Failed attempts |
-|---|---:|
-| Administrator | 40 |
-| admin | 8 |
-| administrator1 | 6 |
-| scanner | 6 |
+### Finding 2 — Account Lockout
 
-The source generated repeated authentication failures against the Administrator account before attempting three additional usernames.
+- **Event ID:** 4740
+- **Account:** `Administrator`
+- **Time:** 03:08:33 UTC
 
-This activity is consistent with brute-force and account-targeting behaviour.
+The lockout occurred immediately after the burst of failed logons.
 
-### Finding 2: Authentication failure reasons
+However, the 4740 record does not contain a source IP, so the lockout cannot be directly attributed to `203.0.113.88` from this record alone.
 
-The investigation identified two main SubStatus values:
+### Finding 3 — Multiple-Account Failures Followed by Successful Login
 
-| SubStatus | Description | Count |
-|---|---|---:|
-| 0xC000006A | Incorrect password | 43 |
-| 0xC0000064 | User does not exist | 24 |
+- **Source IP:** `198.51.100.199`
+- **Failed attempts:** 7
+- **Distinct accounts targeted:** 7
+- **Successful account:** `temp_intern`
+- **Successful login time:** 19:37:23 UTC
+- **Target host:** `NIMBUS-FS01`
+- **Logon type:** 10 — Remote Interactive
 
-The results indicate that the activity included password guessing against an existing account and attempts involving usernames that did not exist.
+The successful login followed seven failed attempts from the same IP within the 30-minute correlation window.
 
-### Finding 3: Administrator account lockout
+The failed attempts targeted different accounts from the account used in the successful login.
 
-**Event ID:** 4740  
-**Account:** Administrator  
-**Computer:** NIMBUS-FS01  
-**Time:** 03:08:33 UTC
+Logon Type 10 is commonly associated with Remote Desktop, but this event alone does not confirm the exact remote access method.
 
-An account-lockout event was recorded immediately after the concentrated authentication failures.
+## 4. Technical Interpretation
 
-This supports the need to investigate the earlier activity. However, the lockout event does not contain a source IP in this dataset, so direct attribution to the earlier IP cannot be confirmed from this event alone.
+- Event ID 4625: Failed logon.
+- Event ID 4624: Successful logon.
+- Event ID 4740: Account lockout.
+- SubStatus `0xC000006A`: Incorrect password.
+- SubStatus `0xC0000064`: User account does not exist.
 
-### Finding 4: Multiple account targeting followed by successful authentication
+The dataset contains:
+- 43 events with SubStatus `0xC000006A`.
+- 24 events with SubStatus `0xC0000064`.
 
-**Source IP:** `198.51.100.199`
+The behaviour is consistent with brute-force/password-guessing activity and multi-account targeting.
 
-Between 19:15:22 and 19:34:41 UTC, seven failed authentication attempts targeted seven different accounts.
-
-The accounts included:
-
-- bnguyen
-- acarter
-- backup_svc
-- lgarcia
-- kchen
-- ekim
-- dpatel
-
-At 19:37:23 UTC, a successful login was recorded.
-
-| Field | Value |
-|---|---|
-| Event ID | 4624 |
-| Username | temp_intern |
-| Source IP | 198.51.100.199 |
-| Logon Type | 10 |
-| Workstation | DESKTOP-7Q2X9 |
-| Computer | NIMBUS-FS01 |
-
-Logon Type 10 indicates a Remote Interactive login, commonly associated with Remote Desktop.
-
-**Assessment:** The successful login came from the same source IP as the earlier failures, but targeted a different username. This is suspicious and warrants investigation. It does not prove that the successful account was compromised.
-
-## 4. Detection Methodology
-
-Four SPL detection queries were developed.
-
-| Query | Detection objective |
-|---|---|
-| 01_brute_force_by_source_ip.spl | Identify repeated failed logins |
-| 02_wrong_password_attempts.spl | Identify incorrect-password failures |
-| 03_multiple_accounts_from_one_ip.spl | Identify sources targeting multiple accounts |
-| 04_failed_then_successful_login.spl | Identify successful logins following failures |
-
-The dataset was inspected using Python. The SPL files have been authored but have not yet been executed in Splunk.
+The evidence does not establish password spraying because it does not show whether the same password was attempted against each account.
 
 ## 5. MITRE ATT&CK Mapping
 
-| Technique | Description | Relevance |
+| Technique | Evidence | Assessment |
 |---|---|---|
-| T1110 | Brute Force | Repeated authentication failures |
-| T1110.001 | Password Guessing | Repeated incorrect-password attempts |
-| T1078 | Valid Accounts | Potential investigation area following successful authentication |
-
-These are investigative mappings, not proof that a particular threat actor or technique was conclusively identified.
+| T1110 — Brute Force | Repeated failed authentication attempts | Observed behaviour |
+| T1110.001 — Password Guessing | Repeated incorrect-password failures | Strongly consistent |
+| T1078 — Valid Accounts | Successful login after suspicious activity | Investigative hypothesis |
+| T1021.001 — Remote Desktop Protocol | Logon Type 10 | Possible; requires confirmation |
 
 ## 6. Recommended SOC Actions
 
-1. Verify whether the Administrator account lockout was expected.
-2. Review authentication activity involving `203.0.113.88`.
-3. Investigate the `temp_intern` successful login.
-4. Review Remote Interactive login activity and associated endpoint telemetry.
-5. Check whether the successful login was authorised by the account owner.
-6. Review subsequent activity for privilege escalation, suspicious processes or lateral movement.
-7. Apply account-protection measures and investigate password hygiene where necessary.
-8. Escalate to the incident response team if unauthorised access is confirmed.
+1. Confirm with the system owner whether the activity and `temp_intern` login were expected.
+2. Review the `temp_intern` account's authentication history, owner and privileges.
+3. Correlate the successful login with RDP-related logs, VPN records and endpoint telemetry.
+4. Review the four accounts targeted by `203.0.113.88`.
+5. If activity is unauthorised, follow the organisation's incident-response process to contain the affected account or endpoint and preserve evidence.
+6. Review authentication thresholds against normal activity to reduce false positives.
 
-## 7. Investigation Limitations
+## 7. Limitations
 
-- The dataset contains a limited selection of Windows Security events.
-- No process execution, network connection or endpoint detection telemetry was provided.
-- The account-lockout event does not identify its originating IP.
-- The successful login following the second attack sequence involved a different username from those targeted by the failures.
-- SPL queries have not yet been validated through actual Splunk execution.
-- The source IP addresses belong to reserved documentation ranges and should not be treated as real attacker infrastructure.
+- Both source IPs are reserved documentation addresses (TEST-NET), not actionable public attacker indicators.
+- The account lockout event does not contain a source IP.
+- Source-IP correlation does not prove that the same person or device generated all events.
+- No endpoint process, network-flow, VPN or RDP server telemetry was supplied.
+- A successful login after failures does not prove account compromise.
+- Python analysis was used to validate the dataset findings. The SPL queries have not yet been executed in a live Splunk environment.
 
-## 8. Final Assessment
+## 8. Conclusion
 
-The dataset contains two distinct suspicious authentication patterns.
+The dataset shows a concentrated burst of failed logons against multiple accounts, an Administrator account lockout, and a separate successful Remote Interactive login following multi-account failures from the same source IP.
 
-The first involves concentrated password failures against the Administrator account, followed by an account-lockout event.
+The activity should be treated as suspicious and investigated using additional identity, endpoint and network evidence.
 
-The second involves failed attempts against multiple accounts, followed by successful Remote Interactive authentication from the same source IP against a different account.
-
-Both patterns warrant investigation. Additional endpoint and authentication telemetry would be required to determine whether unauthorised access occurred.
-
-**Investigation outcome:** Suspicious authentication activity identified; compromise not confirmed.
+Based on this dataset alone, account compromise and attacker attribution remain unconfirmed.
