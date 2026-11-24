@@ -37,6 +37,15 @@ security-portfolio/
 │   ├── M9-insecure-data-storage.md
 │   └── M10-insufficient-cryptography.md
 │
+├── windows-brute-force-detection/
+│   ├── README.md                      
+│   ├── dataset/
+│   ├── queries/
+│   ├── analysis/
+│   ├── screenshots/
+│   ├── mitre/
+│   ├── reports/
+│
 ├── mobsf-audit/
 │   ├── README.md                      ← Audit methodology
 │   └── imagegalleryapp-findings.md    ← Image Gallery iOS app audit findings
