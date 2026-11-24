@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project demonstrates a Security Operations Centre (SOC) investigation of suspicious Windows authentication activity using Windows Security Event Logs and Splunk Search Processing Language (SPL).
+This project demonstrates a Security Operations Centre (SOC) investigation of suspicious Windows authentication activity using Windows Security Event Logs, Python and Splunk Search Processing Language (SPL).
 
 The objective was to identify repeated authentication failures, investigate account-targeting behaviour, detect suspicious successful logins and map findings to MITRE ATT&CK.
 
@@ -11,7 +11,7 @@ The objective was to identify repeated authentication failures, investigate acco
 - Windows Security Event Log analysis
 - Authentication event investigation
 - SPL detection engineering
-- Python-based dataset analysis
+- Python-based dataset analysis with pandas
 - Brute-force and password-guessing detection
 - Multi-account authentication correlation
 - MITRE ATT&CK mapping
@@ -19,95 +19,68 @@ The objective was to identify repeated authentication failures, investigate acco
 
 ## Dataset
 
-The project uses a Windows Security Event CSV containing:
+The analysis uses a Windows Security Event CSV containing timestamps, computer names, Event IDs, usernames, source IP addresses, logon types and authentication status codes.
 
-- Event timestamps
-- Computer names
-- Windows Event IDs
-- Target usernames
-- Source IP addresses
-- Logon types
-- Authentication failure status codes
+| Event ID | Description | Events |
+|---|---|---:|
+| 4625 | Failed logon | 67 |
+| 4624 | Successful logon | 6 |
+| 4740 | Account locked out | 1 |
+| **Total** | | **74** |
 
-**Dataset statistics:**
-
-| Event | Count |
-|---|---:|
-| Failed logins (4625) | 67 |
-| Successful logins (4624) | 6 |
-| Account lockouts (4740) | 1 |
-| Total events | 74 |
+The analysis script expects the input file at `logs/windows_security.csv` by default. The raw CSV is not included in this repository.
 
 ## Detection Use Cases
 
-| Detection | Objective |
-|---|---|
-| 01 | Repeated failed logins by source IP and username |
-| 02 | Incorrect-password authentication attempts |
-| 03 | One source IP targeting multiple accounts |
-| 04 | Successful login following repeated failures against the same account |
-| 05 | Successful login following multiple failed attempts from the same source IP |
+1. [Repeated failures by source IP and account](queries/01_brute_force_by_source_ip.spl)
+2. [Incorrect password attempts](queries/02_wrong_password_attempts.spl)
+3. [One source IP targeting multiple accounts](queries/03_multiple_accounts_from_one_ip.spl)
+4. [Failed logons followed by a successful login](queries/04_failed_then_successful_login.spl) — at least five failures against the same account and IP within 30 minutes.
+5. [Successful login after failures across multiple accounts](queries/05_success_after_multi_account_failures.spl) — at least five failures from the same IP within 30 minutes, regardless of username.
 
-## Key Investigation Findings
+## Key Findings
 
-### 1. Repeated Authentication Failures
+- 60 failed logons from `203.0.113.88` against four accounts on `NIMBUS-FS01` between 03:05:03 and 03:08:32 UTC.
+- An Administrator account lockout occurred at 03:08:33 UTC. The lockout event did not contain a source IP.
+- Seven failed attempts against seven distinct accounts came from `198.51.100.199`, followed by a successful login for `temp_intern` at 19:37:23 UTC (Logon Type 10).
 
-Identified 60 failed login attempts from `203.0.113.88` against four usernames on `NIMBUS-FS01`.
+These patterns are suspicious and warrant investigation, but they do not independently prove account compromise or identify an attacker.
 
-### 2. Password Guessing
+## Project Documentation
 
-Identified 40 failed attempts against the Administrator account with SubStatus `0xC000006A`, indicating incorrect passwords.
+- [Incident Investigation Report](reports/incident_report.md)
+- [MITRE ATT&CK Mapping](mitre/attack_mapping.md)
+- [Analysis Methodology](analysis/METHODOLOGY.md)
+- [Dataset Validation Results](reports/validation_results.md)
 
-### 3. Account Lockout
+## Run the Python Analysis
 
-Identified Windows Event ID 4740 for the Administrator account at 03:08:33 UTC.
+Install the dependency:
 
-### 4. Suspicious Successful Authentication
+```bash
+python3 -m pip install pandas
+```
 
-Identified seven failed authentication attempts against different accounts from `198.51.100.199`, followed by a successful login for `temp_intern` from the same IP.
+Place the CSV at `logs/windows_security.csv`, then run:
 
-The successful login used Logon Type 10, commonly associated with Remote Desktop.
+```bash
+python3 analysis/analyze_windows_logs.py logs/windows_security.csv
+```
 
-This activity warrants investigation but does not independently prove account compromise.
+To choose a different output directory:
+
+```bash
+python3 analysis/analyze_windows_logs.py logs/windows_security.csv --output-dir analysis/results
+```
+
+## Validation Status
+
+- Python analysis was validated against the supplied 74-event dataset.
+- SPL detection queries have been authored but have not yet been executed in a live Splunk environment.
+- SPL queries assume the index is named `windows` and that the required fields are extracted correctly.
 
 ## MITRE ATT&CK
 
-Relevant techniques investigated:
+Relevant techniques and investigative hypotheses:
 
-- T1110 – Brute Force
-- T1110.001 – Password Guessing
-- T1078 – Valid Accounts (investigation hypothesis)
-- T1021.001 – Remote Desktop Protocol (requires confirmation)
-
-## Validation Method
-
-The CSV and underlying detection logic were analysed using Python.
-
-SPL queries were authored but have not yet been executed in Splunk. Therefore, this project distinguishes between Python-validated detection logic and unverified SPL runtime behaviour.
-
-## Repository Structure
-
-```text
-windows-brute-force-detection/
-├── README.md
-├── dataset/
-├── queries/
-├── analysis/
-├── screenshots/
-├── mitre/
-└── reports/
-```
-
-## Limitations
-
-- The dataset is limited to Windows Security events.
-- No endpoint process or network telemetry was supplied.
-- Source IP addresses are reserved documentation addresses.
-- Successful authentication does not automatically establish compromise.
-- SPL runtime validation remains outstanding.
-
-## Conclusion
-
-This project demonstrates a structured investigation of suspicious Windows authentication activity, including detection development, evidence analysis, MITRE ATT&CK mapping and incident reporting.
-
-The investigation identified multiple suspicious authentication patterns requiring further review.
+- T
