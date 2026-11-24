@@ -37,7 +37,7 @@ security-portfolio/
 │   ├── M9-insecure-data-storage.md
 │   └── M10-insufficient-cryptography.md
 │
-├── windows-brute-force-detection/
+├── soc/windows-brute-force-detection/
 │   ├── README.md                      
 │   ├── dataset/
 │   ├── queries/
