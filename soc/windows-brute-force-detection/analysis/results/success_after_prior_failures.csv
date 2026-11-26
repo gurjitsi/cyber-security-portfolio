@@ -1,0 +1,2 @@
+success_time_utc,source_ip,successful_account,computer,logon_type,prior_failed_logins_30m,distinct_failed_accounts_30m,first_prior_failure_utc,last_prior_failure_utc
+2026-10-15T19:37:23Z,198.51.100.199,temp_intern,NIMBUS-FS01,10.0,7,7,2026-10-15T19:15:22Z,2026-10-15T19:34:41Z
